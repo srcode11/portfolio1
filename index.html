@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Engineer | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Feryal Al-Ghamari | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
-            font-family: 'Cairo', sans-serif;
+            font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #0a0f2a 0%, #0f172a 50%, #1e1b4b 100%);
             color: #f1f5f9;
             line-height: 1.6;
@@ -36,9 +36,9 @@
             background: transparent; border: none; color: #cbd5e1;
             font-size: 1rem; font-weight: 500; padding: 0.6rem 1.5rem;
             border-radius: 40px; cursor: pointer; transition: all 0.3s;
-            font-family: 'Cairo', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
-        .nav-btn i { margin-left: 8px; }
+        .nav-btn i { margin-right: 8px; }
         .nav-btn:hover { background: rgba(59, 130, 246, 0.2); color: #60a5fa; transform: translateY(-2px); }
 
         .container { max-width: 1300px; margin: 0 auto; padding: 2rem 1.5rem; }
@@ -82,11 +82,11 @@
         .section { margin: 5rem 0; scroll-margin-top: 80px; animation: fadeInUp 0.6s ease; }
         .section h2 {
             font-size: 2rem; font-weight: 700; margin-bottom: 2.5rem;
-            border-right: 5px solid #3b82f6; padding-right: 1.2rem;
+            border-left: 5px solid #3b82f6; padding-left: 1.2rem;
             display: inline-block;
         }
 
-        /* Projects & Certs Grid */
+        /* Grids */
         .projects-grid, .certs-grid, .experiences-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -118,12 +118,12 @@
             font-size: 1.25rem;
             font-weight: 700;
         }
-        .project-card p, .cert-card p, .experience-card p {
+        .project-card p, .cert-card p {
             padding: 0 1.2rem 1rem;
             color: #cbd5e1;
             font-size: 0.9rem;
         }
-        .project-tech, .exp-tech {
+        .project-tech {
             padding: 0 1.2rem 1.2rem;
             display: flex;
             flex-wrap: wrap;
@@ -138,6 +138,7 @@
         }
         .exp-company { color: #60a5fa; font-size: 0.9rem; padding: 0 1.2rem 0.5rem; }
         .exp-date { color: #94a3b8; font-size: 0.8rem; padding: 0 1.2rem; }
+        .exp-desc-list { padding: 0 1.2rem 1.2rem; color: #cbd5e1; padding-right: 2rem; }
 
         /* Delete Button */
         .delete-btn {
@@ -188,7 +189,7 @@
         }
         .gallery-img:hover { transform: scale(1.02); border-color: #3b82f6; }
 
-        /* Admin Panel */
+        /* Admin Panel - Arabic */
         .secret-admin { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 99; }
         .secret-btn {
             background: rgba(255,255,255,0.1); backdrop-filter: blur(8px);
@@ -203,23 +204,31 @@
             border-radius: 1.2rem; padding: 1rem; width: 260px;
             border: 1px solid rgba(59,130,246,0.4);
             display: none; z-index: 100;
+            font-family: 'Cairo', sans-serif;
+            text-align: right;
         }
         .admin-panel-hidden.show { display: block; animation: fadeInUp 0.2s; }
+        .admin-panel-hidden h3 { text-align: center; margin-bottom: 0.5rem; font-size: 1.2rem; }
         .admin-panel-hidden button {
             width: 100%; margin: 0.5rem 0; padding: 0.6rem;
             background: rgba(255,255,255,0.05); border: none;
             border-radius: 0.8rem; cursor: pointer; font-weight: 500; color: #e2e8f0;
-            transition: 0.2s;
+            transition: 0.2s; font-family: 'Cairo', sans-serif;
         }
         .admin-panel-hidden button:hover { background: #3b82f6; }
         .admin-panel-hidden .danger-btn { background: rgba(239,68,68,0.2); color: #fca5a5; }
         .admin-panel-hidden .danger-btn:hover { background: #ef4444; color: white; }
 
-        /* Forms */
+        /* Forms - Arabic */
+        .form-card {
+            font-family: 'Cairo', sans-serif;
+            text-align: right;
+        }
+        .form-card h3 { text-align: center; margin-bottom: 1rem; }
         .form-card input, .form-card textarea {
             width: 100%; margin: 0.6rem 0; padding: 0.8rem 1rem;
             background: #1e293b; border: 1px solid #334155;
-            border-radius: 1rem; color: white; font-family: inherit;
+            border-radius: 1rem; color: white; font-family: 'Cairo', sans-serif;
         }
         .form-card input:focus, .form-card textarea:focus { outline: none; border-color: #3b82f6; }
         .form-card button {
@@ -251,19 +260,21 @@
 </head>
 <body>
 
+    <!-- Navigation Bar - English -->
     <nav class="navbar">
         <div class="nav-container">
-            <button class="nav-btn" onclick="scrollToSection('home')"><i class="fas fa-home"></i> الرئيسية</button>
-            <button class="nav-btn" onclick="scrollToSection('projects')"><i class="fas fa-project-diagram"></i> المشاريع</button>
-            <button class="nav-btn" onclick="scrollToSection('experience')"><i class="fas fa-briefcase"></i> الخبرات</button>
-            <button class="nav-btn" onclick="scrollToSection('certifications')"><i class="fas fa-certificate"></i> الشهادات</button>
+            <button class="nav-btn" onclick="scrollToSection('home')"><i class="fas fa-home"></i> Home</button>
+            <button class="nav-btn" onclick="scrollToSection('projects')"><i class="fas fa-project-diagram"></i> Projects</button>
+            <button class="nav-btn" onclick="scrollToSection('experience')"><i class="fas fa-briefcase"></i> Experience</button>
+            <button class="nav-btn" onclick="scrollToSection('certifications')"><i class="fas fa-certificate"></i> Certifications</button>
         </div>
     </nav>
 
     <div class="container">
+        <!-- Hero Section - English -->
         <div id="home" class="hero">
             <img id="profile-img" class="profile-img" src="https://randomuser.me/api/portraits/women/68.jpg">
-            <h1 id="name">جاري التحميل...</h1>
+            <h1 id="name">Loading...</h1>
             <div class="title" id="job-title"></div>
             <p class="bio" id="bio"></p>
             <div id="skills-container" class="skills-cloud"></div>
@@ -275,18 +286,21 @@
             </div>
         </div>
 
+        <!-- Projects Section - English -->
         <div id="projects" class="section">
-            <h2><i class="fas fa-project-diagram"></i> المشاريع</h2>
+            <h2><i class="fas fa-project-diagram"></i> Projects</h2>
             <div id="projects-grid" class="projects-grid"></div>
         </div>
 
+        <!-- Experience Section - English -->
         <div id="experience" class="section">
-            <h2><i class="fas fa-briefcase"></i> الخبرات العملية</h2>
+            <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
             <div id="experiences-grid" class="experiences-grid"></div>
         </div>
 
+        <!-- Certifications Section - English -->
         <div id="certifications" class="section">
-            <h2><i class="fas fa-certificate"></i> الشهادات</h2>
+            <h2><i class="fas fa-certificate"></i> Certifications</h2>
             <div id="certifications-grid" class="certs-grid"></div>
         </div>
     </div>
@@ -295,28 +309,28 @@
     <div id="project-modal" class="modal"><div class="modal-content"><span class="close">&times;</span><div id="modal-body"></div></div></div>
     <div id="image-modal" class="modal" onclick="closeImageModal()"><div class="modal-content" style="max-width:90%; text-align:center;"><img id="expanded-image" style="max-width:100%; border-radius:1rem;"></div></div>
 
-    <!-- Admin Panel -->
+    <!-- Admin Panel - ARABIC -->
     <div class="secret-admin"><button class="secret-btn" id="secretBtn"><i class="fas fa-lock"></i></button></div>
     <div id="admin-panel-hidden" class="admin-panel-hidden">
-        <h3 style="text-align:center; margin-bottom:0.5rem;">الإدارة</h3>
+        <h3>⚙️ لوحة التحكم</h3>
         <button id="editProfileBtn"><i class="fas fa-user-edit"></i> تعديل الملف الشخصي</button>
         <button id="showAddProjectBtn"><i class="fas fa-plus-circle"></i> إضافة مشروع</button>
         <button id="showAddExperienceBtn"><i class="fas fa-briefcase"></i> إضافة خبرة</button>
         <button id="showAddCertBtn"><i class="fas fa-certificate"></i> إضافة شهادة</button>
-        <hr><button id="hideAdminBtn" class="danger-btn"><i class="fas fa-lock"></i> إخفاء</button>
+        <hr><button id="hideAdminBtn" class="danger-btn"><i class="fas fa-lock"></i> إخفاء اللوحة</button>
     </div>
 
-    <!-- Edit Profile Form -->
-    <div id="edit-profile-form" class="modal-form" style="display:none"><div class="form-card"><h3>تعديل الملف الشخصي</h3><input type="text" id="edit-name" placeholder="الاسم"><input type="text" id="edit-job-title" placeholder="المسمى"><textarea id="edit-bio" rows="3" placeholder="نبذة"></textarea><input type="text" id="edit-skills" placeholder="مهارات (مثال: Python, React)"><label>الصورة الشخصية</label><input type="file" id="edit-profile-img" accept="image/*"><input type="text" id="edit-github" placeholder="GitHub"><input type="text" id="edit-linkedin" placeholder="LinkedIn"><input type="text" id="edit-twitter" placeholder="Twitter"><input type="text" id="edit-email" placeholder="Email"><button id="saveProfileBtn">حفظ</button><button id="closeProfileFormBtn">إلغاء</button></div></div>
+    <!-- Edit Profile Form - ARABIC -->
+    <div id="edit-profile-form" class="modal-form" style="display:none"><div class="form-card"><h3>تعديل الملف الشخصي</h3><input type="text" id="edit-name" placeholder="الاسم الكامل"><input type="text" id="edit-job-title" placeholder="المسمى الوظيفي"><textarea id="edit-bio" rows="3" placeholder="نبذة تعريفية"></textarea><input type="text" id="edit-skills" placeholder="المهارات (مثال: Python, React)"><label>الصورة الشخصية</label><input type="file" id="edit-profile-img" accept="image/*"><input type="text" id="edit-github" placeholder="رابط GitHub"><input type="text" id="edit-linkedin" placeholder="رابط LinkedIn"><input type="text" id="edit-twitter" placeholder="رابط Twitter"><input type="text" id="edit-email" placeholder="البريد الإلكتروني"><button id="saveProfileBtn">💾 حفظ</button><button id="closeProfileFormBtn">إلغاء</button></div></div>
 
-    <!-- Add Project Form -->
-    <div id="add-project-form" class="modal-form" style="display:none"><div class="form-card"><h3>مشروع جديد</h3><input type="text" id="proj-title" placeholder="اسم المشروع"><textarea id="proj-desc" rows="3" placeholder="وصف المشروع"></textarea><input type="text" id="proj-tech" placeholder="التقنيات"><input type="text" id="proj-video" placeholder="رابط فيديو"><label>الصورة الرئيسية</label><input type="file" id="proj-main-img" accept="image/*"><label>صور إضافية</label><input type="file" id="proj-gallery-imgs" multiple accept="image/*"><button id="saveProjectBtn">حفظ</button><button id="closeProjectFormBtn">إلغاء</button></div></div>
+    <!-- Add Project Form - ARABIC -->
+    <div id="add-project-form" class="modal-form" style="display:none"><div class="form-card"><h3>➕ مشروع جديد</h3><input type="text" id="proj-title" placeholder="اسم المشروع"><textarea id="proj-desc" rows="3" placeholder="وصف المشروع"></textarea><input type="text" id="proj-tech" placeholder="التقنيات (مثال: React, Python)"><input type="text" id="proj-video" placeholder="رابط فيديو (YouTube)"><label>📸 الصورة الرئيسية</label><input type="file" id="proj-main-img" accept="image/*"><label>🖼️ صور إضافية</label><input type="file" id="proj-gallery-imgs" multiple accept="image/*"><button id="saveProjectBtn">حفظ المشروع</button><button id="closeProjectFormBtn">إلغاء</button></div></div>
 
-    <!-- Add Experience Form -->
-    <div id="add-experience-form" class="modal-form" style="display:none"><div class="form-card"><h3>إضافة خبرة جديدة</h3><input type="text" id="exp-title" placeholder="المسمى الوظيفي (مثال: مطورة باك إند)"><input type="text" id="exp-company" placeholder="اسم الشركة"><input type="text" id="exp-date" placeholder="التاريخ (مثال: 2024-2025)"><textarea id="exp-desc" rows="4" placeholder="نقاط الإنجازات (اكتبي كل نقطة في سطر جديد)"></textarea><button id="saveExperienceBtn">حفظ الخبرة</button><button id="closeExperienceFormBtn">إلغاء</button></div></div>
+    <!-- Add Experience Form - ARABIC -->
+    <div id="add-experience-form" class="modal-form" style="display:none"><div class="form-card"><h3>➕ إضافة خبرة جديدة</h3><input type="text" id="exp-title" placeholder="المسمى الوظيفي (مثال: Backend Developer)"><input type="text" id="exp-company" placeholder="اسم الشركة"><input type="text" id="exp-date" placeholder="التاريخ (مثال: 2024 - Present)"><textarea id="exp-desc" rows="4" placeholder="نقاط الإنجازات (اكتبي كل نقطة في سطر جديد)"></textarea><button id="saveExperienceBtn">حفظ الخبرة</button><button id="closeExperienceFormBtn">إلغاء</button></div></div>
 
-    <!-- Add Certificate Form -->
-    <div id="add-cert-form" class="modal-form" style="display:none"><div class="form-card"><h3>شهادة جديدة</h3><input type="text" id="cert-title" placeholder="اسم الشهادة"><input type="text" id="cert-issuer" placeholder="الجهة"><input type="text" id="cert-date" placeholder="التاريخ"><label>صورة الشهادة</label><input type="file" id="cert-image" accept="image/*"><button id="saveCertBtn">حفظ</button><button id="closeCertFormBtn">إلغاء</button></div></div>
+    <!-- Add Certificate Form - ARABIC -->
+    <div id="add-cert-form" class="modal-form" style="display:none"><div class="form-card"><h3>📜 إضافة شهادة جديدة</h3><input type="text" id="cert-title" placeholder="اسم الشهادة"><input type="text" id="cert-issuer" placeholder="الجهة المانحة"><input type="text" id="cert-date" placeholder="التاريخ (مثال: 2024)"><label>صورة الشهادة</label><input type="file" id="cert-image" accept="image/*"><button id="saveCertBtn">حفظ الشهادة</button><button id="closeCertFormBtn">إلغاء</button></div></div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
@@ -344,9 +358,9 @@
         async function loadProfile() {
             let { data } = await supabaseClient.from('profile').select('*').single();
             if(data) {
-                document.getElementById('name').innerText = data.name || 'فريال الغماري';
-                document.getElementById('job-title').innerText = data.job_title || 'مطورة برمجيات';
-                document.getElementById('bio').innerText = data.bio || 'أطور حلولاً تقنية مبتكرة';
+                document.getElementById('name').innerText = data.name || 'Feryal Al-Ghamari';
+                document.getElementById('job-title').innerText = data.job_title || 'Software Engineer';
+                document.getElementById('bio').innerText = data.bio || 'Building innovative tech solutions with AI and modern web technologies.';
                 if(data.profile_image) document.getElementById('profile-img').src = data.profile_image;
                 if(data.skills) document.getElementById('skills-container').innerHTML = (Array.isArray(data.skills)?data.skills:data.skills.split(',')).map(s=>`<span class="skill-tag">${escapeHtml(s.trim())}</span>`).join('');
                 document.getElementById('github').href = data.github || '#'; document.getElementById('linkedin').href = data.linkedin || '#'; document.getElementById('twitter').href = data.twitter || '#'; document.getElementById('email').href = `mailto:${data.email || ''}`;
@@ -360,7 +374,7 @@
             let container = document.getElementById('projects-grid');
             if(data?.length) {
                 container.innerHTML = data.map(p => `<div class="project-card">${adminPanel.classList.contains('show') ? `<button class="delete-btn" onclick="event.stopPropagation(); deleteProject(${p.id})"><i class="fas fa-trash"></i></button>` : ''}<div onclick="showProject(${p.id})"><img src="${p.main_image || ''}" onerror="this.src='https://placehold.co/400x200?text=No+Image'"><h3>${escapeHtml(p.title)}</h3><p>${escapeHtml((p.description||'').substring(0,100))}...</p><div class="project-tech">${p.technologies ? p.technologies.split(',').map(t=>`<span class="tech-badge">${escapeHtml(t.trim())}</span>`).join('') : ''}</div></div></div>`).join('');
-            } else container.innerHTML = '<p style="text-align:center;">لا توجد مشاريع بعد</p>';
+            } else container.innerHTML = '<p style="text-align:center;">No projects added yet.</p>';
         }
         
         // Load Experiences
@@ -368,8 +382,8 @@
             let { data } = await supabaseClient.from('experiences').select('*').order('created_at', { ascending: false });
             let container = document.getElementById('experiences-grid');
             if(data?.length) {
-                container.innerHTML = data.map(exp => `<div class="experience-card">${adminPanel.classList.contains('show') ? `<button class="delete-btn" onclick="event.stopPropagation(); deleteExperience(${exp.id})"><i class="fas fa-trash"></i></button>` : ''}<div><h3>${escapeHtml(exp.title)}</h3><div class="exp-company"><i class="fas fa-building"></i> ${escapeHtml(exp.company)}</div><div class="exp-date"><i class="fas fa-calendar-alt"></i> ${escapeHtml(exp.date || '')}</div><div class="exp-desc-list" style="padding: 0 1.2rem 1.2rem; color:#cbd5e1">${exp.description ? exp.description.map(d => `<li style="margin-right:1rem;">${escapeHtml(d)}</li>`).join('') : ''}</div></div></div>`).join('');
-            } else container.innerHTML = '<p style="text-align:center;">لا توجد خبرات مضافة بعد</p>';
+                container.innerHTML = data.map(exp => `<div class="experience-card">${adminPanel.classList.contains('show') ? `<button class="delete-btn" onclick="event.stopPropagation(); deleteExperience(${exp.id})"><i class="fas fa-trash"></i></button>` : ''}<div><h3>${escapeHtml(exp.title)}</h3><div class="exp-company"><i class="fas fa-building"></i> ${escapeHtml(exp.company)}</div><div class="exp-date"><i class="fas fa-calendar-alt"></i> ${escapeHtml(exp.date || '')}</div><ul class="exp-desc-list">${exp.description ? exp.description.map(d => `<li>${escapeHtml(d)}</li>`).join('') : ''}</ul></div></div>`).join('');
+            } else container.innerHTML = '<p style="text-align:center;">No experience added yet.</p>';
         }
         
         // Load Certificates
@@ -377,20 +391,20 @@
             let { data } = await supabaseClient.from('certifications').select('*').order('created_at', { ascending: false });
             let container = document.getElementById('certifications-grid');
             if(data?.length) container.innerHTML = data.map(c => `<div class="cert-card"><img src="${c.image_url||''}" onerror="this.src='https://placehold.co/300x200?text=Certificate'"><h4>${escapeHtml(c.title)}</h4><p>${escapeHtml(c.issuer||'')} ${c.date?'| '+c.date:''}</p></div>`).join('');
-            else container.innerHTML = '<p style="text-align:center;">لا توجد شهادات بعد</p>';
+            else container.innerHTML = '<p style="text-align:center;">No certifications added yet.</p>';
         }
         
         // Delete Functions
-        window.deleteProject = async (id) => { if(confirm("حذف المشروع؟")) { let {error} = await supabaseClient.from('projects').delete().eq('id', id); if(!error) { alert("تم الحذف"); loadProjects(); } else alert("خطأ: "+error.message); } };
-        window.deleteExperience = async (id) => { if(confirm("حذف الخبرة؟")) { let {error} = await supabaseClient.from('experiences').delete().eq('id', id); if(!error) { alert("تم الحذف"); loadExperiences(); } else alert("خطأ: "+error.message); } };
+        window.deleteProject = async (id) => { if(confirm("Delete this project?")) { let {error} = await supabaseClient.from('projects').delete().eq('id', id); if(!error) { alert("Project deleted"); loadProjects(); } else alert("Error: "+error.message); } };
+        window.deleteExperience = async (id) => { if(confirm("Delete this experience?")) { let {error} = await supabaseClient.from('experiences').delete().eq('id', id); if(!error) { alert("Experience deleted"); loadExperiences(); } else alert("Error: "+error.message); } };
         
         // Show Project Modal
         window.showProject = async (id) => {
             let { data } = await supabaseClient.from('projects').select('*').eq('id', id).single();
             if(data) {
                 let galleryHtml = '';
-                if(data.gallery_images?.length) galleryHtml = `<h4>🖼️ معرض الصور</h4><div class="gallery">${data.gallery_images.map(img=>`<img src="${img}" class="gallery-img" onclick="event.stopPropagation(); openImageModal('${img}')">`).join('')}</div>`;
-                document.getElementById('modal-body').innerHTML = `<h2>${escapeHtml(data.title)}</h2>${data.main_image?`<img src="${data.main_image}" style="width:100%; border-radius:1rem; margin:1rem 0; cursor:pointer;" onclick="openImageModal('${data.main_image}')">`:''}<p>${escapeHtml(data.description||'')}</p>${data.technologies?`<h4>🛠️ التقنيات</h4><div class="project-tech">${data.technologies.split(',').map(t=>`<span class="tech-badge">${escapeHtml(t.trim())}</span>`).join('')}</div>`:''}${data.video_url?`<iframe width="100%" height="300" src="${data.video_url.replace('watch?v=','embed/')}" frameborder="0" style="border-radius:1rem; margin:1rem 0;"></iframe>`:''}${galleryHtml}`;
+                if(data.gallery_images?.length) galleryHtml = `<h4>🖼️ Gallery</h4><div class="gallery">${data.gallery_images.map(img=>`<img src="${img}" class="gallery-img" onclick="event.stopPropagation(); openImageModal('${img}')">`).join('')}</div>`;
+                document.getElementById('modal-body').innerHTML = `<h2>${escapeHtml(data.title)}</h2>${data.main_image?`<img src="${data.main_image}" style="width:100%; border-radius:1rem; margin:1rem 0; cursor:pointer;" onclick="openImageModal('${data.main_image}')">`:''}<p>${escapeHtml(data.description||'')}</p>${data.technologies?`<h4>🛠️ Tech Stack</h4><div class="project-tech">${data.technologies.split(',').map(t=>`<span class="tech-badge">${escapeHtml(t.trim())}</span>`).join('')}</div>`:''}${data.video_url?`<iframe width="100%" height="300" src="${data.video_url.replace('watch?v=','embed/')}" frameborder="0" style="border-radius:1rem; margin:1rem 0;"></iframe>`:''}${galleryHtml}`;
                 document.getElementById('project-modal').style.display = 'flex';
             }
         };
