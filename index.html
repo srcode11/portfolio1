@@ -20,7 +20,6 @@
         ::-webkit-scrollbar-track { background: #1e293b; border-radius: 10px; }
         ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 10px; }
 
-        /* Navbar */
         .navbar {
             position: sticky; top: 0; z-index: 100;
             background: rgba(10, 15, 35, 0.9);
@@ -43,7 +42,6 @@
 
         .container { max-width: 1300px; margin: 0 auto; padding: 2rem 1.5rem; }
 
-        /* Hero */
         .hero { text-align: center; margin-bottom: 4rem; animation: fadeInUp 0.8s ease; }
         .profile-img {
             width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
@@ -60,7 +58,6 @@
         .title { color: #93c5fd; font-size: 1.2rem; margin-bottom: 1rem; }
         .bio { max-width: 650px; margin: 0 auto 1.8rem; color: #cbd5e1; }
 
-        /* Skills */
         .skills-cloud { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin: 1.8rem 0; }
         .skill-tag {
             background: rgba(59, 130, 246, 0.15); backdrop-filter: blur(4px);
@@ -69,7 +66,6 @@
         }
         .skill-tag:hover { background: #3b82f6; transform: translateY(-2px); }
 
-        /* Social */
         .social-links { display: flex; gap: 1.2rem; justify-content: center; margin-top: 1.8rem; }
         .social-links a {
             background: rgba(255,255,255,0.05); width: 48px; height: 48px; border-radius: 50%;
@@ -78,7 +74,6 @@
         }
         .social-links a:hover { background: #3b82f6; color: white; transform: translateY(-4px); }
 
-        /* Sections */
         .section { margin: 5rem 0; scroll-margin-top: 80px; animation: fadeInUp 0.6s ease; }
         .section h2 {
             font-size: 2rem; font-weight: 700; margin-bottom: 2.5rem;
@@ -86,7 +81,6 @@
             display: inline-block;
         }
 
-        /* Grids */
         .projects-grid, .certs-grid, .experiences-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -140,7 +134,6 @@
         .exp-date { color: #94a3b8; font-size: 0.8rem; padding: 0 1.2rem; }
         .exp-desc-list { padding: 0 1.2rem 1.2rem; color: #cbd5e1; padding-right: 2rem; }
 
-        /* Delete Button */
         .delete-btn {
             position: absolute; top: 12px; left: 12px;
             background: #ef4444; color: white; border: none;
@@ -148,8 +141,15 @@
             cursor: pointer; z-index: 10; transition: all 0.2s;
         }
         .delete-btn:hover { background: #dc2626; transform: scale(1.05); }
+        
+        .edit-btn {
+            position: absolute; top: 12px; right: 12px;
+            background: #3b82f6; color: white; border: none;
+            border-radius: 50%; width: 34px; height: 34px;
+            cursor: pointer; z-index: 10; transition: all 0.2s;
+        }
+        .edit-btn:hover { background: #2563eb; transform: scale(1.05); }
 
-        /* Modals - Improved */
         .modal, .modal-form {
             display: none;
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -211,7 +211,6 @@
         }
         .gallery-img:hover { transform: scale(1.02); border-color: #3b82f6; }
 
-        /* Admin Panel - Arabic */
         .secret-admin { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 99; }
         .secret-btn {
             background: rgba(255,255,255,0.1); backdrop-filter: blur(8px);
@@ -241,7 +240,6 @@
         .admin-panel-hidden .danger-btn { background: rgba(239,68,68,0.2); color: #fca5a5; }
         .admin-panel-hidden .danger-btn:hover { background: #ef4444; color: white; }
 
-        /* Forms - Arabic */
         .form-card {
             font-family: 'Cairo', sans-serif;
             text-align: right;
@@ -283,7 +281,6 @@
 </head>
 <body>
 
-    <!-- Navigation Bar - English -->
     <nav class="navbar">
         <div class="nav-container">
             <button class="nav-btn" onclick="scrollToSection('home')"><i class="fas fa-home"></i> Home</button>
@@ -294,7 +291,6 @@
     </nav>
 
     <div class="container">
-        <!-- Hero Section - English -->
         <div id="home" class="hero">
             <img id="profile-img" class="profile-img" src="https://randomuser.me/api/portraits/women/68.jpg">
             <h1 id="name">Loading...</h1>
@@ -309,37 +305,45 @@
             </div>
         </div>
 
-        <!-- Projects Section - English -->
         <div id="projects" class="section">
             <h2><i class="fas fa-project-diagram"></i> Projects</h2>
             <div id="projects-grid" class="projects-grid"></div>
         </div>
 
-        <!-- Experience Section - English -->
         <div id="experience" class="section">
             <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
             <div id="experiences-grid" class="experiences-grid"></div>
         </div>
 
-        <!-- Certifications Section - English -->
         <div id="certifications" class="section">
             <h2><i class="fas fa-certificate"></i> Certifications</h2>
             <div id="certifications-grid" class="certs-grid"></div>
         </div>
     </div>
 
-    <!-- Modals - Improved with better close options -->
+    <!-- Modals -->
     <div id="project-modal" class="modal" onclick="closeModalOnOutsideClick(event)">
         <div class="modal-content">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
-                <div class="close-btn" onclick="closeProjectModal()" style="cursor: pointer; font-size: 1.8rem; color: #94a3b8; transition: 0.2s;">&times;</div>
-                <span style="font-size: 0.8rem; color: #64748b;"><i class="fas fa-arrow-up"></i> Scroll inside <i class="fas fa-arrow-down"></i> | <i class="fas fa-times"></i> Click X or press ESC</span>
+                <div class="close-btn" onclick="closeProjectModal()" style="cursor: pointer; font-size: 1.8rem; color: #94a3b8;">&times;</div>
+                <span style="font-size: 0.8rem; color: #64748b;"><i class="fas fa-arrow-up"></i> Scroll <i class="fas fa-arrow-down"></i> | <i class="fas fa-times"></i> ESC to close</span>
             </div>
             <div id="modal-body" style="max-height: 60vh; overflow-y: auto; padding: 0.5rem;"></div>
             <div style="text-align: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #334155;">
-                <button onclick="closeProjectModal()" style="background: #3b82f6; color: white; border: none; padding: 0.6rem 1.8rem; border-radius: 2rem; cursor: pointer; font-size: 0.9rem; transition: 0.2s;">
-                    <i class="fas fa-times"></i> Close
-                </button>
+                <button onclick="closeProjectModal()" style="background: #3b82f6; color: white; border: none; padding: 0.6rem 1.8rem; border-radius: 2rem; cursor: pointer;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cert-modal" class="modal" onclick="closeModalOnOutsideClick(event)">
+        <div class="modal-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <div class="close-btn" onclick="closeCertModal()" style="cursor: pointer; font-size: 1.8rem; color: #94a3b8;">&times;</div>
+                <span style="font-size: 0.8rem; color: #64748b;">Certificate Details</span>
+            </div>
+            <div id="cert-modal-body" style="max-height: 60vh; overflow-y: auto; padding: 0.5rem;"></div>
+            <div style="text-align: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #334155;">
+                <button onclick="closeCertModal()" style="background: #3b82f6; color: white; border: none; padding: 0.6rem 1.8rem; border-radius: 2rem; cursor: pointer;">Close</button>
             </div>
         </div>
     </div>
@@ -353,7 +357,7 @@
         </div>
     </div>
 
-    <!-- Admin Panel - ARABIC -->
+    <!-- Admin Panel -->
     <div class="secret-admin"><button class="secret-btn" id="secretBtn"><i class="fas fa-lock"></i></button></div>
     <div id="admin-panel-hidden" class="admin-panel-hidden">
         <h3>⚙️ لوحة التحكم</h3>
@@ -364,17 +368,23 @@
         <hr><button id="hideAdminBtn" class="danger-btn"><i class="fas fa-lock"></i> إخفاء اللوحة</button>
     </div>
 
-    <!-- Edit Profile Form - ARABIC -->
+    <!-- Edit Profile Form -->
     <div id="edit-profile-form" class="modal-form" style="display:none"><div class="form-card"><h3>تعديل الملف الشخصي</h3><input type="text" id="edit-name" placeholder="الاسم الكامل"><input type="text" id="edit-job-title" placeholder="المسمى الوظيفي"><textarea id="edit-bio" rows="3" placeholder="نبذة تعريفية"></textarea><input type="text" id="edit-skills" placeholder="المهارات (مثال: Python, React)"><label>الصورة الشخصية</label><input type="file" id="edit-profile-img" accept="image/*"><input type="text" id="edit-github" placeholder="رابط GitHub"><input type="text" id="edit-linkedin" placeholder="رابط LinkedIn"><input type="text" id="edit-twitter" placeholder="رابط Twitter"><input type="text" id="edit-email" placeholder="البريد الإلكتروني"><button id="saveProfileBtn">💾 حفظ</button><button id="closeProfileFormBtn">إلغاء</button></div></div>
 
-    <!-- Add Project Form - ARABIC -->
-    <div id="add-project-form" class="modal-form" style="display:none"><div class="form-card"><h3>➕ مشروع جديد</h3><input type="text" id="proj-title" placeholder="اسم المشروع"><textarea id="proj-desc" rows="3" placeholder="وصف المشروع"></textarea><input type="text" id="proj-tech" placeholder="التقنيات (مثال: React, Python)"><input type="text" id="proj-video" placeholder="رابط فيديو (YouTube)"><label>📸 الصورة الرئيسية</label><input type="file" id="proj-main-img" accept="image/*"><label>🖼️ صور إضافية</label><input type="file" id="proj-gallery-imgs" multiple accept="image/*"><button id="saveProjectBtn">حفظ المشروع</button><button id="closeProjectFormBtn">إلغاء</button></div></div>
+    <!-- Add Project Form -->
+    <div id="add-project-form" class="modal-form" style="display:none"><div class="form-card"><h3>➕ مشروع جديد</h3><input type="text" id="proj-title" placeholder="اسم المشروع"><textarea id="proj-desc" rows="3" placeholder="وصف المشروع"></textarea><input type="text" id="proj-tech" placeholder="التقنيات"><input type="text" id="proj-video" placeholder="رابط فيديو"><label>الصورة الرئيسية</label><input type="file" id="proj-main-img" accept="image/*"><label>صور إضافية</label><input type="file" id="proj-gallery-imgs" multiple accept="image/*"><button id="saveProjectBtn">حفظ</button><button id="closeProjectFormBtn">إلغاء</button></div></div>
 
-    <!-- Add Experience Form - ARABIC -->
-    <div id="add-experience-form" class="modal-form" style="display:none"><div class="form-card"><h3>➕ إضافة خبرة جديدة</h3><input type="text" id="exp-title" placeholder="المسمى الوظيفي (مثال: Backend Developer)"><input type="text" id="exp-company" placeholder="اسم الشركة"><input type="text" id="exp-date" placeholder="التاريخ (مثال: 2024 - Present)"><textarea id="exp-desc" rows="4" placeholder="نقاط الإنجازات (اكتبي كل نقطة في سطر جديد)"></textarea><button id="saveExperienceBtn">حفظ الخبرة</button><button id="closeExperienceFormBtn">إلغاء</button></div></div>
+    <!-- Edit Project Form -->
+    <div id="edit-project-form" class="modal-form" style="display:none"><div class="form-card"><h3>✏️ تعديل مشروع</h3><input type="text" id="edit-proj-id" hidden><input type="text" id="edit-proj-title" placeholder="اسم المشروع"><textarea id="edit-proj-desc" rows="3" placeholder="وصف المشروع"></textarea><input type="text" id="edit-proj-tech" placeholder="التقنيات"><input type="text" id="edit-proj-video" placeholder="رابط فيديو"><button id="updateProjectBtn">💾 تحديث</button><button id="closeEditProjectFormBtn">إلغاء</button></div></div>
 
-    <!-- Add Certificate Form - ARABIC -->
-    <div id="add-cert-form" class="modal-form" style="display:none"><div class="form-card"><h3>📜 إضافة شهادة جديدة</h3><input type="text" id="cert-title" placeholder="اسم الشهادة"><input type="text" id="cert-issuer" placeholder="الجهة المانحة"><input type="text" id="cert-date" placeholder="التاريخ (مثال: 2024)"><label>صورة الشهادة</label><input type="file" id="cert-image" accept="image/*"><button id="saveCertBtn">حفظ الشهادة</button><button id="closeCertFormBtn">إلغاء</button></div></div>
+    <!-- Add Experience Form -->
+    <div id="add-experience-form" class="modal-form" style="display:none"><div class="form-card"><h3>➕ إضافة خبرة جديدة</h3><input type="text" id="exp-title" placeholder="المسمى الوظيفي"><input type="text" id="exp-company" placeholder="اسم الشركة"><input type="text" id="exp-date" placeholder="التاريخ"><textarea id="exp-desc" rows="4" placeholder="نقاط الإنجازات (اكتبي كل نقطة في سطر جديد)"></textarea><button id="saveExperienceBtn">حفظ</button><button id="closeExperienceFormBtn">إلغاء</button></div></div>
+
+    <!-- Add Certificate Form -->
+    <div id="add-cert-form" class="modal-form" style="display:none"><div class="form-card"><h3>📜 إضافة شهادة جديدة</h3><input type="text" id="cert-title" placeholder="اسم الشهادة"><input type="text" id="cert-issuer" placeholder="الجهة المانحة"><input type="text" id="cert-date" placeholder="التاريخ"><label>الصورة الرئيسية</label><input type="file" id="cert-main-img" accept="image/*"><label>صور إضافية</label><input type="file" id="cert-gallery-imgs" multiple accept="image/*"><button id="saveCertBtn">حفظ الشهادة</button><button id="closeCertFormBtn">إلغاء</button></div></div>
+
+    <!-- Edit Certificate Form -->
+    <div id="edit-cert-form" class="modal-form" style="display:none"><div class="form-card"><h3>✏️ تعديل شهادة</h3><input type="text" id="edit-cert-id" hidden><input type="text" id="edit-cert-title" placeholder="اسم الشهادة"><input type="text" id="edit-cert-issuer" placeholder="الجهة المانحة"><input type="text" id="edit-cert-date" placeholder="التاريخ"><button id="updateCertBtn">💾 تحديث</button><button id="closeEditCertFormBtn">إلغاء</button></div></div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
@@ -397,6 +407,8 @@
         document.getElementById('closeProjectFormBtn').onclick = () => document.getElementById('add-project-form').style.display='none';
         document.getElementById('closeExperienceFormBtn').onclick = () => document.getElementById('add-experience-form').style.display='none';
         document.getElementById('closeCertFormBtn').onclick = () => document.getElementById('add-cert-form').style.display='none';
+        document.getElementById('closeEditProjectFormBtn').onclick = () => document.getElementById('edit-project-form').style.display='none';
+        document.getElementById('closeEditCertFormBtn').onclick = () => document.getElementById('edit-cert-form').style.display='none';
         
         // Load Profile
         async function loadProfile() {
@@ -417,7 +429,7 @@
             let { data } = await supabaseClient.from('projects').select('*').order('created_at', { ascending: false });
             let container = document.getElementById('projects-grid');
             if(data?.length) {
-                container.innerHTML = data.map(p => `<div class="project-card">${adminPanel.classList.contains('show') ? `<button class="delete-btn" onclick="event.stopPropagation(); deleteProject(${p.id})"><i class="fas fa-trash"></i></button>` : ''}<div onclick="showProject(${p.id})"><img src="${p.main_image || ''}" onerror="this.src='https://placehold.co/400x200?text=No+Image'"><h3>${escapeHtml(p.title)}</h3><p>${escapeHtml((p.description||'').substring(0,100))}...</p><div class="project-tech">${p.technologies ? p.technologies.split(',').map(t=>`<span class="tech-badge">${escapeHtml(t.trim())}</span>`).join('') : ''}</div></div></div>`).join('');
+                container.innerHTML = data.map(p => `<div class="project-card">${adminPanel.classList.contains('show') ? `<button class="delete-btn" onclick="event.stopPropagation(); deleteProject(${p.id})"><i class="fas fa-trash"></i></button><button class="edit-btn" onclick="event.stopPropagation(); editProject(${p.id})"><i class="fas fa-edit"></i></button>` : ''}<div onclick="showProject(${p.id})"><img src="${p.main_image || ''}" onerror="this.src='https://placehold.co/400x200?text=No+Image'"><h3>${escapeHtml(p.title)}</h3><p>${escapeHtml((p.description||'').substring(0,100))}...</p><div class="project-tech">${p.technologies ? p.technologies.split(',').map(t=>`<span class="tech-badge">${escapeHtml(t.trim())}</span>`).join('') : ''}</div></div></div>`).join('');
             } else container.innerHTML = '<p style="text-align:center;">No projects added yet.</p>';
         }
         
@@ -434,13 +446,61 @@
         async function loadCertificates() {
             let { data } = await supabaseClient.from('certifications').select('*').order('created_at', { ascending: false });
             let container = document.getElementById('certifications-grid');
-            if(data?.length) container.innerHTML = data.map(c => `<div class="cert-card"><img src="${c.image_url||''}" onerror="this.src='https://placehold.co/300x200?text=Certificate'"><h4>${escapeHtml(c.title)}</h4><p>${escapeHtml(c.issuer||'')} ${c.date?'| '+c.date:''}</p></div>`).join('');
-            else container.innerHTML = '<p style="text-align:center;">No certifications added yet.</p>';
+            if(data?.length) {
+                container.innerHTML = data.map(c => `<div class="cert-card">${adminPanel.classList.contains('show') ? `<button class="delete-btn" onclick="event.stopPropagation(); deleteCertificate(${c.id})"><i class="fas fa-trash"></i></button><button class="edit-btn" onclick="event.stopPropagation(); editCertificate(${c.id})"><i class="fas fa-edit"></i></button>` : ''}<div onclick="showCertificate(${c.id})"><img src="${c.main_image || c.image_url || ''}" onerror="this.src='https://placehold.co/400x200?text=Certificate'"><h4>${escapeHtml(c.title)}</h4><p>${escapeHtml(c.issuer||'')} ${c.date?'| '+c.date:''}</p></div></div>`).join('');
+            } else container.innerHTML = '<p style="text-align:center;">No certifications added yet.</p>';
         }
         
         // Delete Functions
         window.deleteProject = async (id) => { if(confirm("Delete this project?")) { let {error} = await supabaseClient.from('projects').delete().eq('id', id); if(!error) { alert("Project deleted"); loadProjects(); } else alert("Error: "+error.message); } };
         window.deleteExperience = async (id) => { if(confirm("Delete this experience?")) { let {error} = await supabaseClient.from('experiences').delete().eq('id', id); if(!error) { alert("Experience deleted"); loadExperiences(); } else alert("Error: "+error.message); } };
+        window.deleteCertificate = async (id) => { if(confirm("Delete this certificate?")) { let {error} = await supabaseClient.from('certifications').delete().eq('id', id); if(!error) { alert("Certificate deleted"); loadCertificates(); } else alert("Error: "+error.message); } };
+        
+        // Edit Project
+        window.editProject = async (id) => {
+            let { data } = await supabaseClient.from('projects').select('*').eq('id', id).single();
+            if(data) {
+                document.getElementById('edit-proj-id').value = data.id;
+                document.getElementById('edit-proj-title').value = data.title || '';
+                document.getElementById('edit-proj-desc').value = data.description || '';
+                document.getElementById('edit-proj-tech').value = data.technologies || '';
+                document.getElementById('edit-proj-video').value = data.video_url || '';
+                document.getElementById('edit-project-form').style.display = 'flex';
+            }
+        };
+        
+        document.getElementById('updateProjectBtn').onclick = async () => {
+            let id = document.getElementById('edit-proj-id').value;
+            let { error } = await supabaseClient.from('projects').update({
+                title: document.getElementById('edit-proj-title').value,
+                description: document.getElementById('edit-proj-desc').value,
+                technologies: document.getElementById('edit-proj-tech').value,
+                video_url: document.getElementById('edit-proj-video').value
+            }).eq('id', id);
+            if(!error) { alert("Project updated"); document.getElementById('edit-project-form').style.display='none'; loadProjects(); } else alert("Error: "+error.message);
+        };
+        
+        // Edit Certificate
+        window.editCertificate = async (id) => {
+            let { data } = await supabaseClient.from('certifications').select('*').eq('id', id).single();
+            if(data) {
+                document.getElementById('edit-cert-id').value = data.id;
+                document.getElementById('edit-cert-title').value = data.title || '';
+                document.getElementById('edit-cert-issuer').value = data.issuer || '';
+                document.getElementById('edit-cert-date').value = data.date || '';
+                document.getElementById('edit-cert-form').style.display = 'flex';
+            }
+        };
+        
+        document.getElementById('updateCertBtn').onclick = async () => {
+            let id = document.getElementById('edit-cert-id').value;
+            let { error } = await supabaseClient.from('certifications').update({
+                title: document.getElementById('edit-cert-title').value,
+                issuer: document.getElementById('edit-cert-issuer').value,
+                date: document.getElementById('edit-cert-date').value
+            }).eq('id', id);
+            if(!error) { alert("Certificate updated"); document.getElementById('edit-cert-form').style.display='none'; loadCertificates(); } else alert("Error: "+error.message);
+        };
         
         // Show Project Modal
         window.showProject = async (id) => {
@@ -453,31 +513,26 @@
             }
         };
         
+        // Show Certificate Modal
+        window.showCertificate = async (id) => {
+            let { data } = await supabaseClient.from('certifications').select('*').eq('id', id).single();
+            if(data) {
+                let galleryHtml = '';
+                if(data.gallery_images?.length) galleryHtml = `<h4>🖼️ Gallery</h4><div class="gallery">${data.gallery_images.map(img=>`<img src="${img}" class="gallery-img" onclick="event.stopPropagation(); openImageModal('${img}')">`).join('')}</div>`;
+                document.getElementById('cert-modal-body').innerHTML = `<h2>${escapeHtml(data.title)}</h2>${data.main_image?`<img src="${data.main_image}" style="width:100%; border-radius:1rem; margin:1rem 0; cursor:pointer;" onclick="openImageModal('${data.main_image}')">`:''}<p><strong>Issuer:</strong> ${escapeHtml(data.issuer||'')}</p><p><strong>Date:</strong> ${escapeHtml(data.date||'')}</p>${galleryHtml}`;
+                document.getElementById('cert-modal').style.display = 'flex';
+            }
+        };
+        
         window.openImageModal = (src) => { document.getElementById('expanded-image').src = src; document.getElementById('image-modal').style.display = 'flex'; };
         
-        // Improved Modal Close Functions
-        function closeProjectModal() {
-            document.getElementById('project-modal').style.display = 'none';
-        }
+        // Close Functions
+        function closeProjectModal() { document.getElementById('project-modal').style.display = 'none'; }
+        function closeCertModal() { document.getElementById('cert-modal').style.display = 'none'; }
+        function closeImageModal() { document.getElementById('image-modal').style.display = 'none'; }
+        function closeModalOnOutsideClick(event) { if (event.target.classList.contains('modal')) { closeProjectModal(); closeCertModal(); closeImageModal(); } }
         
-        function closeImageModal() {
-            document.getElementById('image-modal').style.display = 'none';
-        }
-        
-        function closeModalOnOutsideClick(event) {
-            if (event.target.classList.contains('modal')) {
-                closeProjectModal();
-                closeImageModal();
-            }
-        }
-        
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeProjectModal();
-                closeImageModal();
-            }
-        });
+        document.addEventListener('keydown', (event) => { if (event.key === 'Escape') { closeProjectModal(); closeCertModal(); closeImageModal(); } });
         
         // Save Profile
         document.getElementById('saveProfileBtn').onclick = async () => {
@@ -535,21 +590,37 @@
         document.getElementById('saveCertBtn').onclick = async () => {
             let title = document.getElementById('cert-title').value;
             if(!title) { alert("أدخلي اسم الشهادة"); return; }
-            let imgUrl = '';
-            let file = document.getElementById('cert-image').files[0];
-            if(file) {
-                let name = `${Date.now()}_cert_${file.name}`;
-                let { data, error } = await supabaseClient.storage.from('project-images').upload(name, file);
-                if(data) imgUrl = SUPABASE_URL+`/storage/v1/object/public/project-images/${name}`;
-                else { alert("خطأ في رفع الصورة"); return; }
-            } else { alert("اختاري صورة للشهادة"); return; }
-            let { error } = await supabaseClient.from('certifications').insert({ title, issuer: document.getElementById('cert-issuer').value, date: document.getElementById('cert-date').value, image_url: imgUrl });
-            if(!error) { alert("تمت الإضافة"); document.getElementById('add-cert-form').style.display='none'; loadCertificates(); } else alert("خطأ: "+error.message);
+            
+            let mainUrl = '';
+            let mainFile = document.getElementById('cert-main-img').files[0];
+            if(mainFile) {
+                let name = `${Date.now()}_cert_main_${mainFile.name}`;
+                let { data, error } = await supabaseClient.storage.from('project-images').upload(name, mainFile);
+                if(data) mainUrl = SUPABASE_URL+`/storage/v1/object/public/project-images/${name}`;
+                else { alert("خطأ في رفع الصورة الرئيسية"); return; }
+            } else { alert("اختاري صورة رئيسية للشهادة"); return; }
+            
+            let galleryUrls = [];
+            for(let f of document.getElementById('cert-gallery-imgs').files) {
+                let name = `${Date.now()}_cert_${f.name}`;
+                let { data } = await supabaseClient.storage.from('project-images').upload(name, f);
+                if(data) galleryUrls.push(SUPABASE_URL+`/storage/v1/object/public/project-images/${name}`);
+            }
+            
+            let { error } = await supabaseClient.from('certifications').insert({
+                title: title,
+                issuer: document.getElementById('cert-issuer').value,
+                date: document.getElementById('cert-date').value,
+                main_image: mainUrl,
+                image_url: mainUrl,
+                gallery_images: galleryUrls
+            });
+            if(!error) { alert("تمت إضافة الشهادة"); document.getElementById('add-cert-form').style.display='none'; loadCertificates(); } else alert("خطأ: "+error.message);
         };
         
         function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, m=>{ if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
         
-        new MutationObserver(() => { loadProjects(); loadExperiences(); }).observe(adminPanel, { attributes: true, attributeFilter: ['class'] });
+        new MutationObserver(() => { loadProjects(); loadExperiences(); loadCertificates(); }).observe(adminPanel, { attributes: true, attributeFilter: ['class'] });
         loadProfile(); loadProjects(); loadExperiences(); loadCertificates();
     </script>
 </body>
