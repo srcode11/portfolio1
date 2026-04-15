@@ -353,7 +353,7 @@
             <div style="display: flex; justify-content: flex-end;">
                 <div class="close-btn" onclick="closeImageModal()" style="cursor: pointer; font-size: 1.8rem; color: #94a3b8;">&times;</div>
             </div>
-            <img id="expanded-image" style="max-width:100%; border-radius:1rem;">
+            <img id="expanded-image" style="max-width:100%; border-radius:1rem; cursor: pointer;">
         </div>
     </div>
 
@@ -513,18 +513,29 @@
             }
         };
         
-        // Show Certificate Modal
+        // Show Certificate Modal with image zoom (FIXED)
         window.showCertificate = async (id) => {
             let { data } = await supabaseClient.from('certifications').select('*').eq('id', id).single();
             if(data) {
                 let galleryHtml = '';
-                if(data.gallery_images?.length) galleryHtml = `<h4>🖼️ Gallery</h4><div class="gallery">${data.gallery_images.map(img=>`<img src="${img}" class="gallery-img" onclick="event.stopPropagation(); openImageModal('${img}')">`).join('')}</div>`;
-                document.getElementById('cert-modal-body').innerHTML = `<h2>${escapeHtml(data.title)}</h2>${data.main_image?`<img src="${data.main_image}" style="width:100%; border-radius:1rem; margin:1rem 0; cursor:pointer;" onclick="openImageModal('${data.main_image}')">`:''}<p><strong>Issuer:</strong> ${escapeHtml(data.issuer||'')}</p><p><strong>Date:</strong> ${escapeHtml(data.date||'')}</p>${galleryHtml}`;
+                if(data.gallery_images?.length) {
+                    galleryHtml = `<h4>🖼️ Gallery</h4><div class="gallery">${data.gallery_images.map(img => `<img src="${img}" class="gallery-img" onclick="event.stopPropagation(); openImageModal('${img}')">`).join('')}</div>`;
+                }
+                document.getElementById('cert-modal-body').innerHTML = `
+                    <h2>${escapeHtml(data.title)}</h2>
+                    ${data.main_image ? `<img src="${data.main_image}" style="width:100%; border-radius:1rem; margin:1rem 0; cursor:pointer;" onclick="openImageModal('${data.main_image}')">` : ''}
+                    <p><strong>Issuer:</strong> ${escapeHtml(data.issuer || '')}</p>
+                    <p><strong>Date:</strong> ${escapeHtml(data.date || '')}</p>
+                    ${galleryHtml}
+                `;
                 document.getElementById('cert-modal').style.display = 'flex';
             }
         };
         
-        window.openImageModal = (src) => { document.getElementById('expanded-image').src = src; document.getElementById('image-modal').style.display = 'flex'; };
+        window.openImageModal = (src) => { 
+            document.getElementById('expanded-image').src = src; 
+            document.getElementById('image-modal').style.display = 'flex'; 
+        };
         
         // Close Functions
         function closeProjectModal() { document.getElementById('project-modal').style.display = 'none'; }
